@@ -1,0 +1,14 @@
+﻿@model MVC4SQLServerCompact4Ornek.Models.diller
+@{
+    ViewBag.Title = "DilDuzenle";
+}
+
+<h2>ID : @Model.id düzenleniyor..</h2>
+
+@using (Html.BeginForm("DilDuzenle","Home")) { @* DilDuzenle action'ını kullanmak için form etiketi oluşturuluyor.  *@
+    @Html.TextBox("ad", Model.ad) @*  text tipinde input oluşturuluyor. DilDuzenle action metodundan gelen parametre ile yazdırabiliyoruz.  Gibi ; <input type="text" name="ad" value="C#" />  *@
+    <input type="submit" value="Güncelle"/> @* İşimiz bittikten sonra formu gönderiyoruz.  *@
+}
+
+
+@Html.ActionLink("Geri Dön","Index")  @* Başlangıç sayfasına geri dön linki oluşturuluyor.  *@

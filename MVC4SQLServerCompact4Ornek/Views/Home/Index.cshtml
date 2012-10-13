@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@* Burada DilEkle action'ını kullanabilmek için form etiketi oluşturuluyor.  *@
+@using (Html.BeginForm("DilEkle","Home")) 
+{ 
+    
+    @Html.TextBox("ad") @* Yani; <input type="text" name="ad" value=""/>  *@
+    <input type="submit" value="Ekle" />    
+}
+
+<ul style="width:300px;">
+    @foreach (var i in Model){        
+        @*
+        Başlangıçta View katmanına gönderilen model değişkeni içindeki veriler burada listeleniyor. Listelerken yanlarına güncelle ve sil linkleri de ekleniyor.
+        Bu linkler parametreleriyle beraber action metodlarına istekte bulunuyorlar.                
+        *@
+        <li>@i.ad - @Html.ActionLink("Güncelle [*]", "DilDuzenle", new { i.id}) | @Html.ActionLink("Sil [X]", "DilSil", new { i.id }) <hr /></li>
+    }
+</ul>
